@@ -1,0 +1,29 @@
+import acm.program.*;
+
+public class Hailstone extends ConsoleProgram {
+
+	int steps = 0;
+	public void run() {
+		//This asks you to enter the number.
+		int x = readInt("Enter the number: ");
+		//This says that whenever x does NOT equal 1, it 
+		//does the algorithms. 
+		while(x != 1) {
+			int y = x % 2;
+			//This checks to see if the number is even, if so,
+			//it divides by two. If not, it multiplies by three 
+			//and adds one.
+			if (y == 0) {
+				x = x / 2;
+				println("The number is even, so the program divides it by two and gets "+ x +"." );
+				steps = steps + 1;
+			} else {
+				x = (x * 3) + 1;
+				println("The number is odd, so the program multiplies it by three, adds one and gets "+ x +".");
+			}
+		}
+		//This just tells you that the algorithm got to one 
+		//and however many steps it took.
+		println("It took "+ steps +" steps to get to 1.");
+	}
+}
